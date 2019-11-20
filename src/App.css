@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron");
+
+body, input {
+  font-family: "Orbitron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -7,7 +13,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #FFBD33;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

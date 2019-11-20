@@ -1,32 +1,44 @@
 import React, { Component } from "react";
 import Player from "./Player";
-
+import "./Scoreboard.css";
+import AddPlayer from "./AddPlayer";
 
 export default class Scoreboard extends Component {
   state = {
     players: [
       { id: 1, name: "Kelley", score: 11 },
       { id: 2, name: "David", score: 14 },
-      { id: 3, name: "Rein", score: 4 }
+      { id: 3, name: "Rein", score: 7 }
     ]
   };
 
-  
   render () {
     // copying the array of players because `.sort()` **mutates!**
     const players_copy = [ ...this.state.players ];
     // sorting the players
     players_copy.sort((a, b) => b.score - a.score);
     // console.log(players_copy); // <!-- add console.log's if you're not sure!
-
+    
     return (
       <div className="scoreboard">
         <h1>Scoreboard</h1>
         <ul>
           {players_copy.map(this.renderPlayer)}
         </ul>
+        <AddPlayer addPlayer={this.addPlayer} />
       </div>
     );
+  }
+
+  addPlayer = (name) => {
+    const player = {
+      id: Math.round(Math.random()*100000),
+      name,
+      score: 0
+    }
+    this.setState({
+      players: this.state.players.concat(player)
+    }) 
   }
 
   renderPlayer = player => {
@@ -40,6 +52,7 @@ export default class Scoreboard extends Component {
       />
     );
   }
+
   incrementScoreOfPlayer = id => {
     this.setState({
       players: this.state.players.map(player => (

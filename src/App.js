@@ -1,8 +1,9 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Title from './components/Title'
-import Scoreboard from './components/Scoreboard'
+import Title from './components/Title';
+import Scoreboard from './components/Scoreboard';
+
 
 function App() {
   return (
